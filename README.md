@@ -14,3 +14,6 @@ You can easely config evry part of this business system, you can remove the unne
   **qb-target**,
   **qb-core**,
   **qb-inventory**
+  
+ # Credits
+ Thanks ŠPOKAS#8262 for making this background image!!!
