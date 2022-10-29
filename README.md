@@ -1,5 +1,5 @@
 # About 
- This is a plug and play script made for qbcore. It allows you to configure multiple businesses just in single resource
+ This is a plug and play script made for qbcore. It allows you to configure multiple businesses just in a single resource
 
 ![renbusinnes](https://user-images.githubusercontent.com/85559163/198835306-a319679d-ed28-4c0d-b258-592757325dd1.png)
 
