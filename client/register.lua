@@ -1,9 +1,9 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
 RegisterNetEvent("ren-businesses:create:bill", function(data)
-    QBCore.Functions.TriggerCallback('ren-businesses:create:bill', function(result)
+    QBCore.Functions.TriggerCallback('ren-businesses:can:create:bill', function(result)
         if not result then 
-            QBCore.Functions.Notify('There is already a bill created!', 'error', 5500)
+            QBCore.Functions.Notify('There is already a bill created!', 'error', 6000)
         else 
             local bill = exports['qb-input']:ShowInput({
                 header = "Cash Register",
@@ -39,7 +39,7 @@ end)
 RegisterNetEvent('ren-businesses:pay:bill', function(data)
     QBCore.Functions.TriggerCallback("ren-businesses:is:bill:created", function(result, bData)
         if not result then 
-            QBCore.Functions.Notify("There are no bills to pay", 'error', 7500)
+            QBCore.Functions.Notify("There are no bills to pay", 'error', 6000)
         else 
             exports['qb-menu']:openMenu({
                 {
@@ -88,7 +88,7 @@ end)
 RegisterNetEvent('ren-businesses:delete:bill', function(data)
     QBCore.Functions.TriggerCallback("ren-businesses:is:bill:created", function(result, data)
         if not result then 
-            QBCore.Functions.Notify('There are no bills to be deleted', 'error', 5500)
+            QBCore.Functions.Notify('There are no bills to be deleted!', 'error', 6000)
         else 
             TriggerServerEvent("ren-business:clear:bill", data)
         end

@@ -4,16 +4,20 @@ CreateThread(function()
     for k,v in pairs(Config.businesses) do 
 
         if v.Blip then 	  
-            local blip = AddBlipForCoord(v.pos)
-            SetBlipSprite(blip, v.id)
-            SetBlipDisplay(blip, 4)
-            SetBlipColour(blip, v.color)
-            SetBlipScale(blip, v.scale)
-            SetBlipAsShortRange(blip, true)
+            for Blip = 1, #v.Blip do 
+                local poly = v.Blip[Blip]
 
-            BeginTextCommandSetBlipName("STRING")
-            AddTextComponentString(v.label)
-            EndTextCommandSetBlipName(blip)
+                local blip = AddBlipForCoord(poly.pos)
+                SetBlipSprite(blip, poly.id)
+                SetBlipDisplay(blip, 4)
+                SetBlipColour(blip, poly.color)
+                SetBlipScale(blip, poly.scale)
+                SetBlipAsShortRange(blip, true)
+
+                BeginTextCommandSetBlipName("STRING")
+                AddTextComponentString(poly.label)
+                EndTextCommandSetBlipName(blip)
+            end
         end
 
         if v.Storages then 
@@ -31,7 +35,7 @@ CreateThread(function()
                             event = 'ren-business:open:storage',
                             icon = 'fas fa-box-open',
                             label = poly.stash.label,
-                            job = poly.job,
+                            job = poly.stash.job,
                             stash = poly.stash
                         },
                     },

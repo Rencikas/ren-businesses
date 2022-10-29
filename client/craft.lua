@@ -3,12 +3,11 @@ local QBCore = exports['qb-core']:GetCoreObject()
 RegisterNetEvent('ren-businesses:open:craft', function(data)
     local menu = {
         {
-            header = "Carfting table",
+            header = "Crafting table",
             isMenuHeader = true
         },
     }  
     for k, v in pairs(Config.businesses[data.job]['Craft'][data.craft].items) do
-        print(json.encode(v.required))
         menu[#menu+1] = {
             header = v.label,
             txt = "Required items: "..v.requiredLabel.."$",
@@ -29,13 +28,11 @@ RegisterNetEvent('ren-businesses:open:craft', function(data)
 end)
 
 RegisterNetEvent("ren-businesses:craft:item", function(data)
-    print(json.encode(data))
     QBCore.Functions.TriggerCallback('ren-businesses:can:craft:item', function(result)
-        print(result)
         if not result then 
             QBCore.Functions.Notify('You don\'t have all required items to craft this item', 'error', 7500)
         else
-            QBCore.Functions.Progressbar('name_here', 'Crafting...', 5000, false, true, {
+            QBCore.Functions.Progressbar('ren-businesses:crafting', 'Crafting...', 5000, false, true, {
                 disableMovement = true,
                 disableCarMovement = true,
                 disableMouse = false,

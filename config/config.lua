@@ -1,68 +1,93 @@
 Config = {
-    Config.QBinventory = 'qb-inventory',--//the name of inventory you are using
+    QBinventory = 'qb-inventory',--//the name of inventory you are using
     AlowCuts = true,--// if this is true this means that all businesses have to take a cut from a employee sale
     PayoutSplit = 40,--// the cut procentage what the business takes what the rest is left for the employee
     Debug = false,--//if true it will enable polyzone debug
     businesses = {
         --//Default preset business
-        ['police'] = {--//key name stands for the business job name
+        ['uwu'] = {--//key name stands for the business job name
             Blip = {--//blip this is where it shows the business location on the map
-                pos = vec3(-603.0, -1097.86, 22.18),--//blip location using vector3
-                label = "UWU Cafe", --//blip label you can see on the map
-                color = 0,--// blip color
-                scale = 0.7,--// blip scale
-                id = 475--//blip icon ID       
-            }
+                [1] = {
+                    pos = vec3(-581.15, -1064.5, 22.35),--//blip location using vector3
+                    label = "UWU Cafe", --//blip label you can see on the map
+                    color = 34,--// blip color
+                    scale = 0.8,--// blip scale
+                    id = 671--//blip icon ID       
+                }
+            },
             Register = {--//register where workers can write bills and players can pay them
                 [1] = {--this means you can add a second register and so on
-                    pos = vec3(-603.0, -1097.86, 22.18),--//location of the box zone
-                    heading = 320,--//box zone heading
-                    length = 3,--//box zone length
-                    width = 3,--// box zone width
-                    minZ = 20.93,--// box zone min height
-                    maxZ = 23.13 --// box zone max height                  
+                    pos = vec3(-584.05, -1061.46, 22.34),--//location of the box zone
+                    heading = 340,--//box zone heading
+                    length = 0.5,--//box zone length
+                    width = 0.5,--// box zone width
+                    minZ = 21.34,--// box zone min height
+                    maxZ = 22.74 --// box zone max height                  
+                },
+                [2] = {--this means you can add a second register and so on
+                    pos = vec3(-584.08, -1058.66, 22.34),--//location of the box zone
+                    heading = 0,--//box zone heading
+                    length = 0.5,--//box zone length
+                    width = 0.5,--// box zone width
+                    minZ = 21.34,--// box zone min height
+                    maxZ = 22.74 --// box zone max height                  
                 }
             },
             Storages = {--//storages this where you can store youre items
                 [1] = {--this means you can add a second storage and so on
-                    pos = vec3(-600.94, -1102.0, 22.32),--//location of the box zone
+                    pos = vec3(-583.71, -1060.43, 22.34),--//location of the box zone
                     heading = 0,--//box zone heading
                     length = 1,--//box zone length
                     width = 1,--// box zone width
-                    minZ = 20.72,--// box zone min height
-                    maxZ = 23.32,--// box zone max height 
+                    minZ = 21.34,--// box zone min height
+                    maxZ = 22.74,--// box zone max height 
                     stash = {
                         label = 'Open counter',--//this is the label of the target for the stash
                         name = 'uwu_counter1',--//this is a stash ID 
-                        weight = 500,--//this is stash weight
+                        weight = 50000,--//this is stash weight
                         slots = 5,--//this is stash slots
-                        job = false--// if job = false that means that this storage is public. If you want a private stash replace false with your job name like this: job = "police"          
+                        job = false--// if job = false that means that this storage is public. If you want a private stash replace false with your job name like this: job = "uwu"          
                     }
                 },
                 [2] = {--this means you can add a second storage and so on
-                    pos = vec3(-600.94, -1102.0, 22.32),--//location of the box zone
+                    pos = vec3(-590.83, -1059.26, 22.36),--//location of the box zone
                     heading = 0,--//box zone heading
                     length = 1,--//box zone length
                     width = 1,--// box zone width
-                    minZ = 20.72,--// box zone min height
-                    maxZ = 23.32,--// box zone max height 
+                    minZ = 21.16,--// box zone min height
+                    maxZ = 23.76,--// box zone max height 
                     stash = {
-                        label = 'Open stash',--//this is the label of the target for the stash
+                        label = 'Open fridge',--//this is the label of the target for the stash
                         name = 'uwu_stash1',--//this is a stash ID 
                         weight = 500000,--//this is stash weight
                         slots = 50,--//this is stash slots
-                        job = 'uwu'--// if job = false that means that this storage is public. If you want a private stash replace false with your job name like this: job = "police"          
+                        job = 'uwu'--// if job = false that means that this storage is public. If you want a private stash replace false with your job name like this: job = "uwu"          
+                    }
+                },
+                [3] = {--this means you can add a second storage and so on
+                    pos = vec3(-587.99, -1067.0, 22.34),--//location of the box zone
+                    heading = 270,--//box zone heading
+                    length = 1,--//box zone length
+                    width = 3,--// box zone width
+                    minZ = 21.34,--// box zone min height
+                    maxZ = 23.54,--// box zone max height 
+                    stash = {
+                        label = 'Open storage',--//this is the label of the target for the stash
+                        name = 'uwu_stash2',--//this is a stash ID 
+                        weight = 500000,--//this is stash weight
+                        slots = 50,--//this is stash slots
+                        job = 'uwu'--// if job = false that means that this storage is public. If you want a private stash replace false with your job name like this: job = "uwu"          
                     }
                 }
             },
             Craft = {--//This is where workers can craft items
                 [1] = {--this means you can add a second craft and so on
-                    pos = vec3(-620.39, -1069.28, 22.38),--//location of the box zone
+                    pos = vec3(-591.09, -1056.54, 22.36),--//location of the box zone
                     heading = 0,--//box zone heading
                     length = 1,--//box zone length
                     width = 1,--// box zone width
-                    minZ = 21.38,--// box zone min height
-                    maxZ = 25.38,--// box zone max height
+                    minZ = 21.36,--// box zone min height
+                    maxZ = 22.56,--// box zone max height
                     items = {--// all the items you can craft
                         {
                             item = 'phone',--//this is the items spawn name
@@ -87,22 +112,22 @@ Config = {
             },
             Duty = {--//this is where your workers can change there duty
                 [1] = {--this means you can add a second duty and so on
-                    pos = vec3(-610.83, -1089.59, 22.32),--//location of the box zone
+                    pos = vec3(-596.27, -1052.58, 22.34),--//location of the box zone
                     heading = 0,--//box zone heading
-                    length = 2,--//box zone length
-                    width = 2,--// box zone width
+                    length = 1,--//box zone length
+                    width = 1,--// box zone width
                     minZ = 21.32,--// box zone min height
                     maxZ = 25.32--// box zone max height                
                 }
             },
             Outfit = {--//this is where workers can change into their saved outfits
                 [1] = {--//this means you can add a second and so on
-                    pos = vec3(-608.8, -1093.63, 22.32),--//location of the box zone
-                    heading = 355,--//box zone heading
-                    length = 5,--//box zone length
-                    width = 1,--// box zone width
-                    minZ = 20.93,--// box zone min height
-                    maxZ = 23.13--// box zone max height              
+                    pos = vec3(-586.29, -1049.83, 22.34),--//location of the box zone
+                    heading = 270,--//box zone heading
+                    length = 1,--//box zone length
+                    width = 2,--// box zone width
+                    minZ = 21.34,--// box zone min height
+                    maxZ = 23.94--// box zone max height              
                 }
             },
         }

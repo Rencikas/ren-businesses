@@ -1,10 +1,10 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local Bills = {}  
 
-QBCore.Functions.CreateCallback('ren-businesses:create:bill', function(source, cb, data)
-    local Player = QBCore.Functions.GetPlayer(source).PlayerData   
+QBCore.Functions.CreateCallback('ren-businesses:can:create:bill', function(source, cb, data)
+    local Player = QBCore.Functions.GetPlayer(source).PlayerData
 
-    if not Bills[data.job] or not Bills[data.job][data.register] then 
+    if not Bills[data.job..data.register] then 
         cb(true)
     else
         cb(false)    
@@ -16,32 +16,27 @@ RegisterNetEvent("ren-businesses:create:bill:server", function(data)
 
     if not pData.PlayerData.job.name == data.job then return end
 
-    Bills[data.job] = {
-        [data.register] = {
-            biller = pData.PlayerData.citizenid,
-            price = data.price,
-            reason = data.reason
-        }
+    Bills[data.job..data.register] = {
+        biller = pData.PlayerData.citizenid,
+        price = data.price,
+        reason = data.reason
     }
 
-    TriggerClientEvent('QBCore:Notify', source, "Bill succesfully created!", "primary", 5000)
+    TriggerClientEvent('QBCore:Notify', source, "Bill successfully created!", "success", 6000)
 end)
 
 QBCore.Functions.CreateCallback('ren-businesses:is:bill:created', function(source, cb, data)
     local pData = QBCore.Functions.GetPlayer(source)
-    if Bills[data.business] then 
 
-        if Bills[data.business][data.register] then 
-            cb(true, Bills[data.business][data.register])
-        end
-
-    else 
-        cb(false, nil)
+    if Bills[data.business..data.register] then    
+        cb(true, Bills[data.business..data.register])
     end
+    
+    cb(false, nil)
 end)
 
 RegisterNetEvent('ren-business:pay:bills', function(data)
-    local bill = Bills[data.job][data.register]
+    local bill = Bills[data.job..data.register]
     local pData = QBCore.Functions.GetPlayer(source)
     local dWorker = QBCore.Functions.GetPlayerByCitizenId(bill.biller)
     local bCut, wCut = CutPayOut(bill)
@@ -51,11 +46,11 @@ RegisterNetEvent('ren-business:pay:bills', function(data)
         dWorker.Functions.AddMoney("bank", wCut)
         exports['qb-management']:AddMoney(data.job, bCut)
 
-        TriggerClientEvent('QBCore:Notify', source, "You paid the bill", "primary", 5000)
-        TriggerClientEvent('QBCore:Notify', dWorker.PlayerData.source, "Player has payed your bill", "primary", 5000)
-        Bills[data.job][data.register] = nil        
+        TriggerClientEvent('QBCore:Notify', source, "You have paid the bill!", "success", 6000)
+        TriggerClientEvent('QBCore:Notify', dWorker.PlayerData.source, "Player has payed your bill", "success", 6000)
+        Bills[data.job..data.register] = nil        
     else 
-        TriggerClientEvent('QBCore:Notify', source, "You can't afford to pay this bill", "error", 5000)
+        TriggerClientEvent('QBCore:Notify', source, "You can't afford to pay this bill", "error", 6000)
     end 
 end)
 
@@ -64,7 +59,9 @@ RegisterNetEvent('ren-business:clear:bill', function(data)
 
     if not pData.PlayerData.job.name == data.job then return end
 
-    Bills[data.job][data.register] = nil
+    if Bills[data.job..data.register] then 
+        Bills[data.job..data.register] = nil
+    end
 end)
 
 CutPayOut = function(bill)
