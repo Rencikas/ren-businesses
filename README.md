@@ -1,5 +1,5 @@
 # About 
- This is a plug and play script made for qbcore where you can configure multiple businesses in one resource
+ This is a plug and play script made for qbcore. It allows you to configure multiple businesses just in single resource
 
 ![renbusinnes](https://user-images.githubusercontent.com/85559163/198835306-a319679d-ed28-4c0d-b258-592757325dd1.png)
 
@@ -10,7 +10,12 @@ Are you tired of having to add 20 million different business scripts that all do
 You can easely config evry part of this business system, you can remove the unneeded things and the system won't break
 
 # How to configure zones
- Target points are created with qb-target box zones so to add a new location you will need to use built in zone creating tools from PolyZone. You can find there wiki on how to use the tools [here](https://github.com/mkafrin/PolyZone/wiki/Using-the-creation-script)
+ Target points are created with qb-target box zones so to add a new location you will need to use built in zone creating tools from PolyZone. You can find there wiki on how to use the tools [here](https://github.com/mkafrin/PolyZone/wiki/Using-the-creation-script) 
+ 
+ # features
+Crafting table with fully customizable item requirments,
+Duty, so your employees can change duty,
+Cloack rooms, 
  
  # Dependencies
   **qb-target**,
