@@ -1,6 +1,8 @@
 Config = {
+    Config.QBinventory = 'qb-inventory',--//the name of inventory you are using
     AlowCuts = true,--// if this is true this means that all businesses have to take a cut from a employee sale
     PayoutSplit = 40,--// the cut procentage what the business takes what the rest is left for the employee
+    Debug = false,--//if true it will enable polyzone debug
     businesses = {
         --//Default preset business
         ['police'] = {--//key name stands for the business job name
@@ -31,10 +33,25 @@ Config = {
                     maxZ = 23.32,--// box zone max height 
                     stash = {
                         label = 'Open counter',--//this is the label of the target for the stash
-                        name = 'Something',--//this is a stash ID 
+                        name = 'uwu_counter1',--//this is a stash ID 
                         weight = 500,--//this is stash weight
                         slots = 5,--//this is stash slots
                         job = false--// if job = false that means that this storage is public. If you want a private stash replace false with your job name like this: job = "police"          
+                    }
+                },
+                [2] = {--this means you can add a second storage and so on
+                    pos = vec3(-600.94, -1102.0, 22.32),--//location of the box zone
+                    heading = 0,--//box zone heading
+                    length = 1,--//box zone length
+                    width = 1,--// box zone width
+                    minZ = 20.72,--// box zone min height
+                    maxZ = 23.32,--// box zone max height 
+                    stash = {
+                        label = 'Open stash',--//this is the label of the target for the stash
+                        name = 'uwu_stash1',--//this is a stash ID 
+                        weight = 500000,--//this is stash weight
+                        slots = 50,--//this is stash slots
+                        job = 'uwu'--// if job = false that means that this storage is public. If you want a private stash replace false with your job name like this: job = "police"          
                     }
                 }
             },
@@ -47,25 +64,25 @@ Config = {
                     minZ = 21.38,--// box zone min height
                     maxZ = 25.38,--// box zone max height
                     items = {--// all the items you can craft
-                    {
-                        item = 'phone',--//this is the items spawn name
-                        label = 'Phone',--//this is the items label name
-                        requiredLabel = 'Phone: 1x, Water: 2x',--//this displays on the menu what items are required to make this item
-                        required = {--//required item list
-                            {item = 'phone', count = 2},
-                            {item = 'water_bottle', count = 1}
-                        }
-                    },
-                    {
-                        item = 'tosti', 
-                        label = 'SandWich',
-                        requiredLabel = 'SandWich: 1x, Water: 2x',
-                        required = {
-                            {item = 'tosti', count = 2},
-                            {item = 'water_bottle', count = 1}
-                        }
-                    }                
-                }            
+                        {
+                            item = 'phone',--//this is the items spawn name
+                            label = 'Phone',--//this is the items label name
+                            requiredLabel = 'Phone: 1x, Water: 2x',--//this displays on the menu what items are required to make this item
+                            required = {--//required item list
+                                {item = 'phone', count = 2},
+                                {item = 'water_bottle', count = 1}
+                            }
+                        },
+                        {
+                            item = 'tosti', 
+                            label = 'SandWich',
+                            requiredLabel = 'SandWich: 1x, Water: 2x',
+                            required = {
+                                {item = 'tosti', count = 2},
+                                {item = 'water_bottle', count = 1}
+                            }
+                        }                
+                    }            
                 }
             },
             Duty = {--//this is where your workers can change there duty
@@ -79,7 +96,7 @@ Config = {
                 }
             },
             Outfit = {--//this is where workers can change into their saved outfits
-                [1] = {--this means you can add a second outfit and so on
+                [1] = {--//this means you can add a second and so on
                     pos = vec3(-608.8, -1093.63, 22.32),--//location of the box zone
                     heading = 355,--//box zone heading
                     length = 5,--//box zone length

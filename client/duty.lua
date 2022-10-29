@@ -16,5 +16,12 @@ RegisterNetEvent('ren-businesses:change:duty', function()
                 }
             }
         },
+        {
+            header = "< close",
+            txt = "",
+            params = {
+                event = "qb-menu:closeMenu"
+            }
+        },
     })
 end)

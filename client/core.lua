@@ -3,8 +3,7 @@ local QBCore = exports['qb-core']:GetCoreObject()
 CreateThread(function()
     for k,v in pairs(Config.businesses) do 
 
-        if v.Blip then 	   
-
+        if v.Blip then 	  
             local blip = AddBlipForCoord(v.pos)
             SetBlipSprite(blip, v.id)
             SetBlipDisplay(blip, 4)
@@ -20,17 +19,17 @@ CreateThread(function()
         if v.Storages then 
             for stash = 1, #v.Storages do 
                 local poly = v.Storages[stash]
-                exports['qb-target']:AddBoxZone('ren-business:storage:'..k..stash, poly.pos, poly.length, poly.width, {
-                    name = 'ren-business:storage:'..k..stash,
+                exports['qb-target']:AddBoxZone('ren-business:storages:'..k..stash, poly.pos, poly.length, poly.width, {
+                    name = 'ren-business:storages:'..k..stash,
                     heading = poly.heading,
-                    debugPoly = true,
+                    debugPoly = Config.Debug,
                     minZ = poly.minZ,
                     maxZ = poly.maxZ,
                 }, {
                     options = {
                         {
                             event = 'ren-business:open:storage',
-                            icon = 'your-font awesome-icon',
+                            icon = 'fas fa-box-open',
                             label = poly.stash.label,
                             job = poly.job,
                             stash = poly.stash
@@ -47,7 +46,7 @@ CreateThread(function()
                 exports['qb-target']:AddBoxZone('ren-business:register:'..k..register, poly.pos, poly.length, poly.width, {
                     name = 'ren-business:register:'..k..register,
                     heading = poly.heading,
-                    debugPoly = true,
+                    debugPoly = Config.Debug,
                     minZ = poly.minZ,
                     maxZ = poly.maxZ,
                 }, {
@@ -69,7 +68,7 @@ CreateThread(function()
                         },
                         {   
                             event = "ren-businesses:pay:bill",
-                            icon = "fas fa-cash-register",
+                            icon = "fas fa-receipt",
                             label = "Pay",    
                             business = k,
                             register = register
@@ -83,17 +82,17 @@ CreateThread(function()
         if v.Craft then 
             for craft = 1, #v.Craft do 
                 local poly = v.Craft[craft]
-                exports['qb-target']:AddBoxZone('ren-business:craft:'..k..craft, poly.pos, poly.length, poly.width, {
-                    name = 'ren-business:craft:'..k..craft,
+                exports['qb-target']:AddBoxZone('ren-business:crafting:'..k..craft, poly.pos, poly.length, poly.width, {
+                    name = 'ren-business:crafting:'..k..craft,
                     heading = poly.heading,
-                    debugPoly = true,
+                    debugPoly = Config.Debug,
                     minZ = poly.minZ,
                     maxZ = poly.maxZ,
                 }, {
                     options = {
                         {
                             event = "ren-businesses:open:craft",
-                            icon = "fas fa-cash-register",
+                            icon = "fas fa-temperature-high",
                             label = "Craft",
                             job = k,
                             craft = craft
@@ -107,17 +106,17 @@ CreateThread(function()
         if v.Outfit then 
             for outfit = 1, #v.Outfit do 
                 local poly = v.Outfit[outfit]
-                exports['qb-target']:AddBoxZone('ren-business:outfit:'..k..outfit, poly.pos, poly.length, poly.width, {
-                    name = 'ren-business:outfit:'..k..outfit,
+                exports['qb-target']:AddBoxZone('ren-business:outfits:'..k..outfit, poly.pos, poly.length, poly.width, {
+                    name = 'ren-business:outfits:'..k..outfit,
                     heading = poly.heading,
-                    debugPoly = true,
+                    debugPoly = Config.Debug,
                     minZ = poly.minZ,
                     maxZ = poly.maxZ,
                 }, {
                     options = {
                         {
                             event = "ren-businesses:open:outfits",
-                            icon = "fas fa-cash-register",
+                            icon = "fas fa-shirt",
                             label = "Change outfit",
                             job = k  
                         },         
@@ -133,7 +132,7 @@ CreateThread(function()
                 exports['qb-target']:AddBoxZone('ren-business:duty:'..k..duty, poly.pos, poly.length, poly.width, {
                     name = 'ren-business:duty:'..k..duty,
                     heading = poly.heading,
-                    debugPoly = true,
+                    debugPoly = Config.Debug,
                     minZ = poly.minZ,
                     maxZ = poly.maxZ,
                 }, {

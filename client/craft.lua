@@ -23,7 +23,7 @@ RegisterNetEvent('ren-businesses:open:craft', function(data)
         }               
     end
     menu[#menu+1] = {
-        header = "Close",      
+        header = "< close",      
     }
     exports['qb-menu']:openMenu(menu)
 end)
@@ -33,7 +33,7 @@ RegisterNetEvent("ren-businesses:craft:item", function(data)
     QBCore.Functions.TriggerCallback('ren-businesses:can:craft:item', function(result)
         print(result)
         if not result then 
-            QBCore.Functions.Notify('You don\'t have all required items', 'error', 7500)
+            QBCore.Functions.Notify('You don\'t have all required items to craft this item', 'error', 7500)
         else
             QBCore.Functions.Progressbar('name_here', 'Crafting...', 5000, false, true, {
                 disableMovement = true,

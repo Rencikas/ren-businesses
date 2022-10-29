@@ -4,12 +4,10 @@ QBCore.Functions.CreateCallback('ren-businesses:can:craft:item', function(source
     local pData = QBCore.Functions.GetPlayer(source)
 
     for k,v in pairs(data.craft) do 
-        local item = exports['qb-inventory']:HasItem(source, v.item, v.count)
-
+        local item = exports[Config.QBinventory]:HasItem(source, v.item, v.count)
         if item then 
             cb(true)
         end
-
     end
     cb(false)
 end)
@@ -18,7 +16,7 @@ RegisterNetEvent('ren-business:craft:item', function(data)
     local pData = QBCore.Functions.GetPlayer(source)
 
     for k,v in pairs(data.craft) do 
-        local item = exports['qb-inventory']:HasItem(source, v.item, v.count)
+        local item = exports[Config.QBinventory]:HasItem(source, v.item, v.count)
 
         if item then 
             pData.Functions.RemoveItem(v.item, v.count)
