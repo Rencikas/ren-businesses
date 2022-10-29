@@ -12,7 +12,10 @@ You can easily config evry part of this business system, you can remove the unne
 # How to configure zones
  Target points are created with qb-target box zones so to add a new location you will need to use built in zone creating tools from PolyZone. You can find there wiki on how to use the tools [here](https://github.com/mkafrin/PolyZone/wiki/Using-the-creation-script) 
  
- # features
+ # Suggestions
+I am fully open for suggestions and if you find that this scripts lacks in some features please let me know!
+ 
+ # Features
 Crafting table with fully customizable item requirments,
 Duty,
 Cloack rooms, with player saved outfits,
