@@ -6,9 +6,9 @@ QBCore.Functions.CreateCallback('ren-businesses:can:create:bill', function(sourc
 
     if not Bills[data.job..data.register] then 
         cb(true)
-    else
-        cb(false)    
     end
+    
+    cb(false)   
 end)
 
 RegisterNetEvent("ren-businesses:create:bill:server", function(data)
