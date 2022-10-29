@@ -6,3 +6,6 @@ A business script for qbcore
 
 # Config
 You can easely config evry part of this business system, you can remove the unneeded things and the system won't break
+
+# How to configure zones
+ Target points are created with qb-target box zones so to add a new location you will need to use built in zone creating tools from PolyZone. You can find there wiki on how to use the tools [here](https://github.com/mkafrin/PolyZone/wiki/Using-the-creation-script)
