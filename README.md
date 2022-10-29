@@ -18,7 +18,7 @@ I am fully open for suggestions and if you find that this scripts lacks in some 
  # Features
 Crafting table with fully customizable item requirments,
 Duty,
-Cloack rooms, with player saved outfits,
+Cloak rooms, with player saved outfits,
 Cash register, where employees can create a new bill and customers can pay with targeting the cash register and split the profits with the business owner and the worker,
 Storages that you can easily customize to your likings,
  
