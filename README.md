@@ -21,7 +21,7 @@ Duty,
 Cloak rooms, with player saved outfits,
 Cash register, where employees can create a new bill and customers can pay with targeting the cash register and split the profits with the business owner and the worker,
 Storages that you can easily customize to your likings,
-ingredient store with fully customizable items, item price and item authorization
+ingredient stores with fully customizable items, item price and item authorization
  
  # Dependencies
   **qb-target**,
