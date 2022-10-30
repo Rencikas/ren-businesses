@@ -130,6 +130,38 @@ Config = {
                     maxZ = 23.94--// box zone max height              
                 }
             },
+            Store = {--//this is where workers can buy ingredients
+                [1] = {--//this means you can add a second store and so on
+                    pos = vec3(-591.04, -1063.03, 22.36),--//location of the box zone
+                    heading = 0,--//box zone heading
+                    length = 1,--//box zone length
+                    width = 2,--// box zone width
+                    minZ = 21.36,--// box zone min height
+                    maxZ = 23.56,--// box zone max height
+                    label = "UWU ingredient store",--//store label
+                    slots = 30,--//How many slots can the store have
+                    items = {--//store item list
+                        {
+                            name = "phone",--//item spawn name
+                            price = 0,--//item price
+                            amount = 10,--//item amount
+                            info = {},--//item metadata
+                            type = "item",--//item type
+                            slot = 1,--//item slot where it will be placed on the inventory
+                            authorizedJobGrades = {0, 1, 2, 3}--//job grades that can buy this item
+                        },
+                        {
+                            name = "tosti",--//item spawn name
+                            price = 0,--//item price
+                            amount = 10,--//item amount
+                            info = {},--//item metadata
+                            type = "item",--//item type
+                            slot = 2,--//item slot where it will be placed on the inventory
+                            authorizedJobGrades = {0, 1, 2, 3, 4}--//job grades that can buy this item
+                        }                           
+                    }                      
+                }
+            }
         }
         --//end off default business
     }

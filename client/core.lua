@@ -153,5 +153,29 @@ CreateThread(function()
             end
         end
 
+        if v.Store then 
+            for store = 1, #v.Store do 
+                local poly = v.Store[store]
+                exports['qb-target']:AddBoxZone('ren-business:stores:'..k..store, poly.pos, poly.length, poly.width, {
+                    name = 'ren-business:stores:'..k..store,
+                    heading = poly.heading,
+                    debugPoly = Config.Debug,
+                    minZ = poly.minZ,
+                    maxZ = poly.maxZ,
+                }, {
+                    options = {
+                        {
+                            event = "ren-businesses:open:store",
+                            icon = "fas fa-basket-shopping",
+                            label = "Open store",
+                            job = k,
+                            store = store
+                        },         
+                    },
+                    distance = 2.0
+                })
+            end
+        end
+
     end
 end)
