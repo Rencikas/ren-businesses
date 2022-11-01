@@ -13,7 +13,7 @@ You can easily config every part of this business system, you can remove the unn
  Target points are created with qb-target box zones so to add a new location you will need to use built in zone creating tools from PolyZone. You can find there wiki on how to use the tools [here](https://github.com/mkafrin/PolyZone/wiki/Using-the-creation-script) 
  
  # Suggestions
-I am fully open for suggestions and if you find that this scripts lacks in some features please let me know!
+I am fully open for suggestions and if you find that this script lacks in some features please let me know!
  
  # Features
 Crafting table with fully customizable item requirements,
@@ -25,8 +25,7 @@ ingredient stores with fully customizable items, item price and item authorizati
  
  # Dependencies
   **qb-target**,
-  **qb-core**,
-  **qb-inventory**
+  **qb-core**
   
  # Credits
  Thanks ŠPOKAS#8262 for making this background image!!!
