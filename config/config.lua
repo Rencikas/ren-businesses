@@ -90,12 +90,12 @@ Config = {
                     maxZ = 22.56,--// box zone max height
                     items = {--// all the items you can craft
                         {
-                            item = 'phone',--//this is the items spawn name
-                            label = 'Phone',--//this is the items label name
+                            item = 'kurkakola',--//this is the items spawn name
+                            label = 'Cola',--//this is the items label name
                             requiredLabel = 'Phone: 1x, Water: 2x',--//this displays on the menu what items are required to make this item
                             required = {--//required item list
-                                {item = 'phone', count = 2},
-                                {item = 'water_bottle', count = 1}
+                                ['phone'] = 1,--// [item spawn name] = item count
+                                ['water_bottle'] = 2--// [item spawn name] = item count
                             }
                         },
                         {
@@ -103,8 +103,8 @@ Config = {
                             label = 'SandWich',
                             requiredLabel = 'SandWich: 1x, Water: 2x',
                             required = {
-                                {item = 'tosti', count = 2},
-                                {item = 'water_bottle', count = 1}
+                                ['tosti'] = 1,--// [item spawn name] = item count
+                                ['water_bottle'] = 2--// [item spawn name] = item count
                             }
                         }                
                     }            
