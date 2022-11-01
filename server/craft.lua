@@ -13,15 +13,15 @@ end)
 RegisterNetEvent('ren-business:craft:item', function(data)
     local pData = QBCore.Functions.GetPlayer(source)
 
-    if HasCraftItems(source, data.craft) then   
+    if HasCraftItems(source, data.craft) then           
         
         for k,v in pairs(data.craft) do
-            pData.Functions.RemoveItem(k, v)
-            pData.Functions.AddItem(data.item, 1)
-                
+            pData.Functions.RemoveItem(k, v)                
             TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[k], "remove", v) 
-            TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[data.item], "add", 1)   
         end   
+        
+        pData.Functions.AddItem(data.item, 1)
+        TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[data.item], "add", 1)   
 
     end
 end)
