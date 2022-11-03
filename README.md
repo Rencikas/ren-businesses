@@ -15,14 +15,16 @@ You can easily config every part of this business system, you can remove the unn
  # Suggestions
 I am fully open for suggestions and if you find that this script lacks in some features please let me know!
  
- # Features
-Crafting table with fully customizable item requirements,
-Duty,
-Cloak rooms, with player saved outfits,
-Cash register, where employees can create a new bill and customers can pay with targeting the cash register and split the profits with the business owner and the worker,
-Storages that you can easily customize to your likings,
-ingredient stores with fully customizable items, item price and item authorization
- 
+ # Features 
+- Crafting
+- Cloak rooms
+- Cash register
+- Duty
+- Storages
+- ingredient stores
+
+- ...
+
  # Dependencies
   **qb-target**,
   **qb-core**
