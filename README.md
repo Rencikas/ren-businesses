@@ -23,8 +23,6 @@ I am fully open for suggestions and if you find that this script lacks in some f
 - Storages
 - ingredient stores
 
-- ...
-
  # Dependencies
   **qb-target**,
   **qb-core**
