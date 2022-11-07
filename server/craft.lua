@@ -4,7 +4,7 @@ QBCore.Functions.CreateCallback('ren-businesses:can:craft:item', function(source
     local pData = QBCore.Functions.GetPlayer(source)
 
     if HasCraftItems(source, data.craft) then
-        cb(true)
+        return cb(true)
     end
 
     cb(false)

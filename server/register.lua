@@ -5,7 +5,7 @@ QBCore.Functions.CreateCallback('ren-businesses:can:create:bill', function(sourc
     local Player = QBCore.Functions.GetPlayer(source).PlayerData
 
     if not Bills[data.job..data.register] then 
-        cb(true)
+        return cb(true)
     end
     
     cb(false)   
@@ -29,7 +29,7 @@ QBCore.Functions.CreateCallback('ren-businesses:is:bill:created', function(sourc
     local pData = QBCore.Functions.GetPlayer(source)
 
     if Bills[data.business..data.register] then    
-        cb(true, Bills[data.business..data.register])
+        return cb(true, Bills[data.business..data.register])
     end
     
     cb(false, nil)
@@ -39,12 +39,12 @@ RegisterNetEvent('ren-business:pay:bills', function(data)
     local bill = Bills[data.job..data.register]
     local pData = QBCore.Functions.GetPlayer(source)
     local dWorker = QBCore.Functions.GetPlayerByCitizenId(bill.biller)
-    local bCut, wCut = CutPayOut(bill)
+    local cut = CutPayOut(bill.price)
 
     if pData.Functions.RemoveMoney(data.type, bill.price, bill.reason) then 
 
-        dWorker.Functions.AddMoney("bank", wCut)
-        exports['qb-management']:AddMoney(data.job, bCut)
+        dWorker.Functions.AddMoney("bank", bill.price - cut)
+        exports['qb-management']:AddMoney(data.job, cut)
 
         TriggerClientEvent('QBCore:Notify', source, "You have paid the bill!", "success", 6000)
         TriggerClientEvent('QBCore:Notify', dWorker.PlayerData.source, "Player has payed your bill", "success", 6000)
@@ -64,14 +64,9 @@ RegisterNetEvent('ren-business:clear:bill', function(data)
     end
 end)
 
-CutPayOut = function(bill)
-    local business = math.floor(bill.price - bill.price * Config.PayoutSplit)    
-    local worker = math.floor(bill.price - business)
-
-    if not Config.AlowCuts then 
-        business = 0
-        worker = bill.price
-    end
-
-    return business, worker
+CutPayOut = function(price)
+    value = tonumber(price)
+    percent = tonumber(Config.PayoutSplit)
+    if not value and not percent then return end
+    return value * (percent / 100)
 end
