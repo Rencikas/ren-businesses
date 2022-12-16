@@ -1,5 +1,4 @@
 Config = {
-    QBinventory = 'qb-inventory',--//the name of inventory you are using
     AlowCuts = true,--// if this is true this means that all businesses have to take a cut from a employee sale
     PayoutSplit = 40,--// the cut procentage what the business takes what the rest is left for the employee
     Debug = false,--//if true it will enable polyzone debug
