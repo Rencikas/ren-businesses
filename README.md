@@ -26,7 +26,8 @@ I am fully open for suggestions and if you find that this script lacks in some f
  # Dependencies
   **qb-target**,
   **qb-core**
- #Support
+
+ # Support
  If you have any questions, problems or suggestions please feel free to create a ticket @ [ren-development discord](https://discord.gg/7PqhkuuY6V)
  # Credits
  Thanks ŠPOKAS#8262 for making this background image!!!
