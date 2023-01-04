@@ -28,23 +28,33 @@ end)
 QBCore.Functions.CreateCallback('ren-businesses:is:bill:created', function(source, cb, data)
     local pData = QBCore.Functions.GetPlayer(source)
 
-    if Bills[data.business..data.register] then    
-        return cb(true, Bills[data.business..data.register])
-    end
+    if Bills[data.business..data.register] then return cb(true) end
     
-    cb(false, nil)
+    cb(false)
+end)
+
+QBCore.Functions.CreateCallback('ren-businesses:get:bill:data', function(source, cb, data)
+    local pData = QBCore.Functions.GetPlayer(source)
+
+    if Bills[data.business..data.register] then return cb(Bills[data.business..data.register]) end
+    
+    cb(false)
 end)
 
 RegisterNetEvent('ren-business:pay:bills', function(data)
     local bill = Bills[data.job..data.register]
     local pData = QBCore.Functions.GetPlayer(source)
     local dWorker = QBCore.Functions.GetPlayerByCitizenId(bill.biller)
-    local cut = CutPayOut(bill.price)
+    local cut = CutPayOut(bill.price) 
 
     if pData.Functions.RemoveMoney(data.type, bill.price, bill.reason) then 
 
-        dWorker.Functions.AddMoney("bank", bill.price - cut)
-        exports['qb-management']:AddMoney(data.job, cut)
+        if Config.AlowCuts then 
+            exports['qb-management']:AddMoney(data.job, cut)
+            dWorker.Functions.AddMoney("bank", math.floor(bill.price - cut))
+        else 
+            dWorker.Functions.AddMoney("bank", bill.price)
+        end
 
         TriggerClientEvent('QBCore:Notify', source, "You have paid the bill!", "success", 6000)
         TriggerClientEvent('QBCore:Notify', dWorker.PlayerData.source, "Player has payed your bill", "success", 6000)
@@ -57,6 +67,7 @@ end)
 RegisterNetEvent('ren-business:clear:bill', function(data)
     local pData = QBCore.Functions.GetPlayer(source)
 
+    print(json.encode(data))
     if not pData.PlayerData.job.name == data.job then return end
 
     if Bills[data.job..data.register] then 
@@ -68,5 +79,5 @@ CutPayOut = function(price)
     value = tonumber(price)
     percent = tonumber(Config.PayoutSplit)
     if not value and not percent then return end
-    return value * (percent / 100)
+    return math.floor(value * (percent / 100))
 end

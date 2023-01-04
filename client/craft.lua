@@ -15,8 +15,8 @@ RegisterNetEvent('ren-businesses:open:craft', function(data)
             params = {
                 event = "ren-businesses:craft:item",
                 args = {
-                    craft = v.required,
-                    item = v.item
+                    required = v.required,
+                    result = v.result
                 }
             }
         }               

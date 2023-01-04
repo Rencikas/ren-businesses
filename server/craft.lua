@@ -3,7 +3,7 @@ local QBCore = exports['qb-core']:GetCoreObject()
 QBCore.Functions.CreateCallback('ren-businesses:can:craft:item', function(source, cb, data)
     local pData = QBCore.Functions.GetPlayer(source)
 
-    if HasCraftItems(source, data.craft) then
+    if HasCraftItems(source, data.required) then
         return cb(true)
     end
 
@@ -13,16 +13,18 @@ end)
 RegisterNetEvent('ren-business:craft:item', function(data)
     local pData = QBCore.Functions.GetPlayer(source)
 
-    if HasCraftItems(source, data.craft) then           
-        
-        for k,v in pairs(data.craft) do
+    if HasCraftItems(source, data.required) then         
+
+        for k,v in pairs(data.required) do
             pData.Functions.RemoveItem(k, v)                
             TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[k], "remove", v) 
         end   
         
-        pData.Functions.AddItem(data.item, 1)
-        TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[data.item], "add", 1)   
-
+        for k,v in pairs(data.result) do
+            pData.Functions.AddItem(k, v)
+            TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[k], "add", v)   
+        end 
+        TriggerClientEvent('QBCore:Notify', source, 'Crafting process was successfull!', 'success')
     end
 end)
 

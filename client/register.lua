@@ -37,7 +37,7 @@ RegisterNetEvent("ren-businesses:create:bill", function(data)
 end)
 
 RegisterNetEvent('ren-businesses:pay:bill', function(data)
-    QBCore.Functions.TriggerCallback("ren-businesses:is:bill:created", function(result, bData)
+    QBCore.Functions.TriggerCallback("ren-businesses:get:bill:data", function(result)
         if not result then 
             QBCore.Functions.Notify("There are no bills to pay", 'error', 6000)
         else 
@@ -49,7 +49,7 @@ RegisterNetEvent('ren-businesses:pay:bill', function(data)
                 },
                 {
                     header = "Pay with bank",
-                    txt = "You need to pay "..bData.price.."$ for: "..bData.reason,
+                    txt = "You need to pay "..result.price.."$ for: "..result.reason,
                     params = {
                         isServer = true,
                         event = "ren-business:pay:bills",
@@ -62,7 +62,7 @@ RegisterNetEvent('ren-businesses:pay:bill', function(data)
                 },
                 {
                     header = "Pay with cash",
-                    txt = "You need to pay "..bData.price.."$ for: "..bData.reason,
+                    txt = "You need to pay "..result.price.."$ for: "..result.reason,
                     params = {
                         isServer = true,
                         event = "ren-business:pay:bills",
@@ -86,10 +86,11 @@ RegisterNetEvent('ren-businesses:pay:bill', function(data)
 end)
 
 RegisterNetEvent('ren-businesses:delete:bill', function(data)
-    QBCore.Functions.TriggerCallback("ren-businesses:is:bill:created", function(result, data)
+    QBCore.Functions.TriggerCallback("ren-businesses:is:bill:created", function(result)
         if not result then 
             QBCore.Functions.Notify('There are no bills to be deleted!', 'error', 6000)
         else 
+            QBCore.Functions.Notify('Bill successfully deleted!', 'success', 6000)
             TriggerServerEvent("ren-business:clear:bill", data)
         end
     end, data)
