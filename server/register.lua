@@ -4,7 +4,7 @@ local Bills = {}
 QBCore.Functions.CreateCallback('ren-businesses:can:create:bill', function(source, cb, data)
     local Player = QBCore.Functions.GetPlayer(source).PlayerData
 
-    if not Bills[data.job..data.register] then 
+    if not Bills or not Bills[data.job..data.register] then 
         return cb(true)
     end
     
