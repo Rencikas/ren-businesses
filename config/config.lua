@@ -3,6 +3,7 @@ Config = {
     PayoutSplit = 40,--// the cut procentage what the business takes and the rest is left for the employee
     Debug = false,--//if true it will enable polyzone debug
     businesses = {
+        --[[
         --//Default preset business
         ['uwu'] = {--//key name stands for the business job name
             Blip = {--//blip this is where it shows the business location on the map
@@ -169,5 +170,244 @@ Config = {
             }
         }
         --//end off default business
+        ]]
+        ['chefboyrbs'] = {
+            Blip = {
+                [1] = {
+                    pos = vector3(-1387.99, -697.67, 24.48),
+                    label = "Chef Boy RB's",
+                    color = 49,
+                    scale = 0.8,
+                    id = 739
+                }
+            },
+            Register = {
+                [1] = {
+                    pos = vector3(-1394.92, -681.24, 24.79),
+                    heading = 0,
+                    length = 0.6,
+                    width = 0.4,
+                    minZ = 24.79,
+                    maxZ = 25.39
+                },
+            },
+            Storages = {
+                [1] = { -- counter
+                    pos = vector3(-1393.21, -681.29, 24.79),
+                    heading = 30,
+                    length = 0.6,
+                    width = 1,
+                    minZ = 24.79,
+                    maxZ = 24.99,
+                    stash = {
+                        label = 'Open counter',
+                        name = 'chefboyrbs-counter-1',
+                        weight = 50000,
+                        slots = 5,
+                        job = false
+                    }
+                },
+                [2] = { -- fridge
+                    pos = vector3(-1386.2, -672.56, 24.79),
+                    width = 0.8,
+                    length = 0.8,
+                    heading = 35,
+                    minZ = 23.69,
+                    maxZ = 25.69,
+                    stash = {
+                        label = 'Open fridge',
+                        name = 'chefboyrbs-fridge-1',
+                        weight = 500000,
+                        slots = 50,
+                        job = 'chefboyrbs'
+                    }
+                },
+            },
+            Craft = {
+                [1] = { -- food
+                    pos = vector3(-1384.81, -674.71, 24.79),
+                    length = 0.9,
+                    width = 1.7,
+                    heading = 306,
+                    minZ = 23.79,
+                    maxZ = 25.59,
+                    items = {
+                        {
+                            label = 'GF Pasta Chicken Alfredo',
+                            requiredLabel = 'Water: 1x',
+                            required = {
+                                ['water'] = 1,
+                            },
+                            result = {
+                                ['gf_pasta_chicken_alfredo'] = 1,
+                            }
+                        },
+                        {
+                            label = 'Chef’s Pizza',
+                            requiredLabel = 'Water: 1x',
+                            required = {
+                                ['water'] = 1,
+                            },
+                            result = {
+                                ['chefs_pizza'] = 1,
+                            }
+                        },
+                        {
+                            label = 'Lasagna',
+                            requiredLabel = 'Water: 1x',
+                            required = {
+                                ['water'] = 1,
+                            },
+                            result = {
+                                ['lasagna'] = 1,
+                            }
+                        },
+                        {
+                            label = 'Manlionie Cannoli',
+                            requiredLabel = 'Water: 1x',
+                            required = {
+                                ['water'] = 1,
+                            },
+                            result = {
+                                ['manlionie_cannoli'] = 1,
+                            }
+                        },
+                        {
+                            label = 'RB’s Raviolis',
+                            requiredLabel = 'Water: 1x',
+                            required = {
+                                ['water'] = 1,
+                            },
+                            result = {
+                                ['rbs_raviolis'] = 1,
+                            }
+                        },
+                        {
+                            label = 'Tiramisu',
+                            requiredLabel = 'Water: 1x',
+                            required = {
+                                ['water'] = 1,
+                            },
+                            result = {
+                                ['tiramisu'] = 1,
+                            }
+                        },
+                        {
+                            label = 'Risotto',
+                            requiredLabel = 'Water: 1x',
+                            required = {
+                                ['water'] = 1,
+                            },
+                            result = {
+                                ['risotto'] = 1,
+                            }
+                        },
+                        {
+                            label = 'RB’s Mac n cheese',
+                            requiredLabel = 'Water: 1x',
+                            required = {
+                                ['water'] = 1,
+                            },
+                            result = {
+                                ['rbs_mac_n_cheese'] = 1,
+                            }
+                        },
+                    }            
+                },
+                [2] = { -- drinks
+                    pos = vector3(-1391.27, -677.65, 24.79),
+                    length = 0.45,
+                    width = 1.85,
+                    heading = 35,
+                    minZ = 24.84,
+                    maxZ = 25.54,
+                    items = {
+                        {
+                            label = 'Red wine',
+                            requiredLabel = 'Water: 1x',
+                            required = {
+                                ['water'] = 1,
+                            },
+                            result = {
+                                ['red_wine'] = 1,
+                            }
+                        },
+                        {
+                            label = 'Negroni',
+                            requiredLabel = 'Water: 1x',
+                            required = {
+                                ['water'] = 1,
+                            },
+                            result = {
+                                ['negroni'] = 1,
+                            }
+                        },
+                        {
+                            label = 'Spritz',
+                            requiredLabel = 'Water: 1x',
+                            required = {
+                                ['water'] = 1,
+                            },
+                            result = {
+                                ['spritz'] = 1,
+                            }
+                        },
+                    }            
+                }
+            },
+            Duty = {
+                [1] = {
+                    pos = vector3(-1395.8, -690.1, 24.79),
+                    heading = 330,
+                    length = 1.0,
+                    width = 0.8,
+                    minZ = 23.79,
+                    maxZ = 24.99
+                }
+            },
+            Outfit = {
+                [1] = {
+                    pos = vector3(-1389.13, -666.79, 24.79),
+                    heading = 306,
+                    length = 0.8,
+                    width = 1.2,
+                    minZ = 23.34,
+                    maxZ = 25.94
+                }
+            },
+            Store = {
+                [1] = {
+                    pos = vector3(-1386.86, -678.22, 24.79),
+                    width = 3.0,
+                    length = 0.6,
+                    heading = 35,
+                    minZ = 23.79,
+                    maxZ = 25.99,
+                    label = "Chef Boy RB's ingredient store",
+                    slots = 30,
+                    items = {
+                        {
+                            name = "water",
+                            price = 0,
+                            amount = 10,
+                            info = {},
+                            type = "item",
+                            slot = 1,
+                            authorizedJobGrades = {0, 1, 2, 3}
+                        },                         
+                    }                      
+                }
+            },
+            Wash = {
+                [1] = {
+                    pos = vector3(-1385.7, -673.52, 24.79),
+                    width = 1.3,
+                    length = 1.0,
+                    heading = 36,
+                    minZ = 23.79,
+                    maxZ = 24.99
+                }
+            }
+        },
     }
 }

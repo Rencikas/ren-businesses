@@ -177,5 +177,28 @@ CreateThread(function()
             end
         end
 
+        if v.Wash then 
+            for wash = 1, #v.Wash do 
+                local poly = v.Wash[wash]
+                exports['qb-target']:AddBoxZone('ren-business:wash:'..k..wash, poly.pos, poly.length, poly.width, {
+                    name = 'ren-business:wash:'..k..wash,
+                    heading = poly.heading,
+                    debugPoly = Config.Debug,
+                    minZ = poly.minZ,
+                    maxZ = poly.maxZ,
+                }, {
+                    options = {
+                        {
+                            event = "ren-businesses:wash:hands",
+                            icon = "fas fa-basket-shopping",
+                            label = "Wash hands",
+                            job = k
+                        },         
+                    },
+                    distance = 2.0
+                })
+            end
+        end
+
     end
 end)
