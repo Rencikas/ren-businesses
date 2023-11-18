@@ -34,3 +34,4 @@ I am fully open for suggestions and if you find that this script lacks in some f
 # My other work
 - [ren-laundering](https://github.com/Rencikas/ren-laundering)
 - [ren-grandma](https://github.com/Rencikas/ren-grandma)
+- [peuren_burglary](https://peuren.tebex.io/package/5980960)
